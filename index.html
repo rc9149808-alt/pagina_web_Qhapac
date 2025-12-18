@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qhapac Black | Espinar Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">QHAPAC</div>
+        <div class="nav-right">
+            <button class="btn-login" id="btn-user" onclick="abrirAcceso()">Ingresar</button>
+            <div class="cart-btn" onclick="toggleModal('modal-cart', true)">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="categories" id="category-list"></section>
+    <h2 class="section-title" id="current-category">Restaurantes</h2>
+    <div class="shop-grid" id="shop-grid"></div>
+
+    <div id="modal-auth" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal('modal-auth', false)">&times;</span>
+            
+            <div id="view-login">
+                <h2 class="gold-text">Iniciar Sesión</h2>
+                <input type="email" id="log-email" placeholder="Correo electrónico">
+                <button class="btn-gold-full" onclick="iniciarSesion()">Entrar</button>
+                <p class="auth-switch">¿No tienes cuenta? <span onclick="switchAuth('reg')">Regístrate</span></p>
+            </div>
+
+            <div id="view-register" style="display:none">
+                <h2 class="gold-text">Registro</h2>
+                <input type="text" id="reg-nombre" placeholder="Nombre completo (Solo letras)" maxlength="30">
+                <input type="email" id="reg-email" placeholder="Correo electrónico">
+                <input type="text" id="reg-zona" placeholder="Referencia / Ubicación" maxlength="50">
+                <button class="btn-gold-full" onclick="registrarUsuario()">Crear Cuenta</button>
+                <p class="auth-switch">¿Ya tienes cuenta? <span onclick="switchAuth('log')">Ingresa</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-menu" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal('modal-menu', false)">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="modal-cart" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal('modal-cart', false)">&times;</span>
+            <h2 class="gold-text">Tu Pedido</h2>
+            <div id="cart-items"></div>
+            <div class="cart-footer">
+                <p>Total: <span id="cart-total" class="gold-text">S/ 0.00</span></p>
+                <button class="btn-gold-full" onclick="enviarWhatsApp()">Pedir por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
